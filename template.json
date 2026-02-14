@@ -2,7 +2,7 @@
   "version": "2",
   "templates": [
     {
-      "type": 3,
+      "type": 1,
       "title": "Nextcloud",
       "description": "Nextcloud with MariaDB and Redis. A self-hosted productivity platform with file sync, sharing, and collaboration features.",
       "categories": ["cloud", "productivity", "storage"],
