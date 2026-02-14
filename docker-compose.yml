@@ -1,6 +1,6 @@
 services:
   nextcloud:
-    image: nextcloud:latest
+    image: docker.io/nextcloud:latest
     container_name: nextcloud
     restart: unless-stopped
     depends_on:
@@ -24,7 +24,7 @@ services:
       - nextcloud_network
 
   db:
-    image: mariadb:lts
+    image: docker.io/mariadb:lts
     container_name: nextcloud-db
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
@@ -39,7 +39,7 @@ services:
       - nextcloud_network
 
   redis:
-    image: redis:7-alpine
+    image: docker.io/redis:8-alpine
     container_name: nextcloud-redis
     restart: unless-stopped
     command: redis-server --requirepass ${REDIS_PASSWORD:-redis_password}
