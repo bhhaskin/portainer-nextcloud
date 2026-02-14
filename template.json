@@ -1,0 +1,73 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 3,
+      "title": "Nextcloud",
+      "description": "Nextcloud with MariaDB and Redis. A self-hosted productivity platform with file sync, sharing, and collaboration features.",
+      "categories": ["cloud", "productivity", "storage"],
+      "platform": "linux",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/60/Nextcloud_Logo.svg",
+      "repository": {
+        "url": "https://github.com/bhhaskin/portainer-nextcloud",
+        "stackfile": "docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "NEXTCLOUD_ADMIN_USER",
+          "label": "Nextcloud Admin Username",
+          "description": "The username for the Nextcloud admin account.",
+          "default": "admin"
+        },
+        {
+          "name": "NEXTCLOUD_ADMIN_PASSWORD",
+          "label": "Nextcloud Admin Password",
+          "description": "The password for the Nextcloud admin account.",
+          "default": "admin_password"
+        },
+        {
+          "name": "MYSQL_ROOT_PASSWORD",
+          "label": "MariaDB Root Password",
+          "description": "The root password for the MariaDB instance.",
+          "default": "root_password"
+        },
+        {
+          "name": "MYSQL_DATABASE",
+          "label": "MariaDB Database Name",
+          "description": "The name of the database to create for Nextcloud.",
+          "default": "nextcloud"
+        },
+        {
+          "name": "MYSQL_USER",
+          "label": "MariaDB User",
+          "description": "The database user for Nextcloud.",
+          "default": "nextcloud"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "label": "MariaDB Password",
+          "description": "The password for the Nextcloud database user.",
+          "default": "nextcloud_password"
+        },
+        {
+          "name": "REDIS_PASSWORD",
+          "label": "Redis Password",
+          "description": "The password for the Redis instance used for caching and file locking.",
+          "default": "redis_password"
+        },
+        {
+          "name": "NEXTCLOUD_PORT",
+          "label": "Nextcloud Port",
+          "description": "The host port to expose Nextcloud on.",
+          "default": "8080"
+        },
+        {
+          "name": "NEXTCLOUD_TRUSTED_DOMAINS",
+          "label": "Trusted Domains",
+          "description": "Space-separated list of trusted domains for Nextcloud.",
+          "default": "localhost"
+        }
+      ]
+    }
+  ]
+}
