@@ -2,7 +2,7 @@
   "version": "2",
   "templates": [
     {
-      "type": 1,
+      "type": 2,
       "title": "Nextcloud",
       "description": "Nextcloud with MariaDB and Redis. A self-hosted productivity platform with file sync, sharing, and collaboration features.",
       "categories": ["cloud", "productivity", "storage"],
@@ -54,6 +54,12 @@
           "label": "Redis Password",
           "description": "The password for the Redis instance used for caching and file locking.",
           "default": "redis_password"
+        },
+        {
+          "name": "CERT_RESOLVER",
+          "label": "Traefik Certificate Resolver",
+          "description": "The name of the Traefik certificate resolver for TLS (e.g., letsencrypt, cloudflare).",
+          "default": "letsencrypt"
         },
         {
           "name": "NEXTCLOUD_DOMAIN",
