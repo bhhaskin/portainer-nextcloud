@@ -10,6 +10,14 @@ A Portainer-compatible Docker Compose stack template for deploying [Nextcloud](h
 | MariaDB | `mariadb:lts` | Relational database backend |
 | Redis | `redis:alpine` | In-memory cache for file locking and sessions |
 
+## Prerequisites
+
+- Docker Swarm mode enabled
+- [Traefik](https://traefik.io/) deployed on the Swarm with:
+  - `websecure` entrypoint (port 443)
+  - `letsencrypt` certificate resolver configured
+  - Connected to a shared overlay network (default: `traefik-public`)
+
 ## Quick Start
 
 ### Using Portainer
@@ -36,10 +44,10 @@ A Portainer-compatible Docker Compose stack template for deploying [Nextcloud](h
 
 3. Start the stack:
    ```bash
-   docker compose up -d
+   docker stack deploy -c docker-compose.yml nextcloud
    ```
 
-4. Access Nextcloud at `http://localhost:8080` (or your configured port).
+4. Access Nextcloud at `https://cloud.example.com` (or your configured domain).
 
 ## Environment Variables
 
@@ -52,8 +60,8 @@ A Portainer-compatible Docker Compose stack template for deploying [Nextcloud](h
 | `MYSQL_USER` | Database user for Nextcloud | `nextcloud` |
 | `MYSQL_PASSWORD` | Database user password | `nextcloud_password` |
 | `REDIS_PASSWORD` | Redis instance password | `redis_password` |
-| `NEXTCLOUD_PORT` | Host port for Nextcloud | `8080` |
-| `NEXTCLOUD_TRUSTED_DOMAINS` | Space-separated trusted domains | `localhost` |
+| `NEXTCLOUD_DOMAIN` | Domain name for Nextcloud (Traefik routing & trusted domains) | `cloud.example.com` |
+| `TRAEFIK_NETWORK` | External Docker network Traefik is connected to | `traefik-public` |
 
 > **Note:** Change all default passwords before deploying to production.
 

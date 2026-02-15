@@ -56,16 +56,16 @@
           "default": "redis_password"
         },
         {
-          "name": "NEXTCLOUD_PORT",
-          "label": "Nextcloud Port",
-          "description": "The host port to expose Nextcloud on.",
-          "default": "8080"
+          "name": "NEXTCLOUD_DOMAIN",
+          "label": "Nextcloud Domain",
+          "description": "The domain name for Nextcloud (used for Traefik routing and trusted domains).",
+          "default": "cloud.example.com"
         },
         {
-          "name": "NEXTCLOUD_TRUSTED_DOMAINS",
-          "label": "Trusted Domains",
-          "description": "Space-separated list of trusted domains for Nextcloud.",
-          "default": "localhost"
+          "name": "TRAEFIK_NETWORK",
+          "label": "Traefik Network",
+          "description": "The name of the external Docker network that Traefik is connected to.",
+          "default": "traefik-public"
         }
       ]
     }
